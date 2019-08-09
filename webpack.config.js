@@ -16,7 +16,7 @@ const directoryConfig = {
 
 module.exports = (env) => {
   if (env === 'development' || env === 'production') {
-    const buildEnvironment = `./config/webpack.config.${env}.js`;
+    const buildEnvironment = `./config/webpack/webpack.config.${env}.js`;
     // eslint-disable-next-line no-console
     console.log(require(buildEnvironment)(directoryConfig));
     return require(buildEnvironment)(directoryConfig);
