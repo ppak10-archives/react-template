@@ -11,7 +11,7 @@ services:
   app:
     build:
       context: ./
-      dockerfile: Dockerfile.app
+      dockerfile: Dockerfile
     image: template-app
     volumes:
       - ./../../:/usr/src/app
