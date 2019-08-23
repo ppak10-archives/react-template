@@ -15,7 +15,7 @@ import {configureStore} from './store';
 import './style';
 
 // App
-import {App} from './components/App';
+import App from './components/App';
 
 // Document Element
 render(

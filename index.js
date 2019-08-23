@@ -4,21 +4,33 @@
  */
 
 // Node Modules
-const express = require('express');
-const path = require('path');
+import express from 'express';
+import path from 'path';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+
+// Config
+import APP from './config/app.json';
+import {development} from './config/webpack/development';
 
 const app = express();
+const compiler = webpack(development);
 
-// Constants
-const PORT = 8080;
-const PUBLIC_PATH = '../../public';
-
-app.use(express.static(__dirname + '/' + PUBLIC_PATH));
-app.get('*', (req, res) =>
-  res.sendFile(path.resolve(__dirname, PUBLIC_PATH, 'index.html')),
+app.use(
+  webpackDevMiddleware(compiler, {
+    publicPath: development.output.publicPath,
+  }),
 );
 
-app.listen(PORT, () =>
+app.use(webpackHotMiddleware(compiler));
+
+app.use(express.static('public'));
+app.get('*', (req, res) =>
+  res.sendFile(path.resolve(__dirname, './public/index.html')),
+);
+
+app.listen(APP.DEVELOPMENT.PORT, () =>
   // eslint-disable-next-line no-console
-  console.log(`Production running on port ${PORT}`),
+  console.log(`Production running on port ${APP.DEVELOPMENT.PORT}`),
 );

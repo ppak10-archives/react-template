@@ -1,19 +1,27 @@
 /**
- * webpack.config.common.js
- * Common webpack configs used between build environments
+ * common.js
+ * Webpack common configs
  */
 
-module.exports = (directoryConfig) => ({
+// Node Modules
+const path = require('path');
+
+// Constants
+const APP = path.resolve(__dirname, '../../src');
+const BUILD = path.resolve(__dirname, '../../public/js');
+
+module.exports = {
   plugins: [],
-  entry: [directoryConfig.app],
+  entry: [APP],
   output: {
-    path: directoryConfig.build,
+    path: BUILD,
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+  mode: 'production',
   module: {
     rules: [
       {
@@ -21,10 +29,6 @@ module.exports = (directoryConfig) => ({
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-            plugins: [],
-          },
         },
       },
       {
@@ -55,4 +59,4 @@ module.exports = (directoryConfig) => ({
       },
     ],
   },
-});
+};

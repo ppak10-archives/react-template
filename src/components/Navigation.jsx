@@ -21,7 +21,7 @@ export const Navigation = () => (
       <span className="navbar-toggler-icon" />
     </button>
     <Link className="navbar-brand" to="/">
-      Project Name
+      React Template
     </Link>
     <div className="collapse navbar-collapse" id="navbarToggler">
       <ul className="navbar-nav mr-auto mt-2 mt-lg-0">

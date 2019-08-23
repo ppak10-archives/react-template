@@ -5,6 +5,7 @@
 
 // Node Modules
 import React from 'react';
+import {hot} from 'react-hot-loader/root';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 // Components
@@ -14,7 +15,7 @@ import {Navigation} from './Navigation';
 import {AboutPage} from '../pages/About.component';
 import {HomePage} from '../pages/Home.container';
 
-export const App = () => (
+const App = () => (
   <Router>
     <Navigation />
     <Switch>
@@ -23,3 +24,5 @@ export const App = () => (
     </Switch>
   </Router>
 );
+
+export default hot(App);
