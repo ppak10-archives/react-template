@@ -5,7 +5,7 @@
 
 module.exports = (directoryConfig) => ({
   plugins: [],
-  entry: ['@babel/polyfill', directoryConfig.app],
+  entry: [directoryConfig.app],
   output: {
     path: directoryConfig.build,
     filename: '[name].bundle.js',
