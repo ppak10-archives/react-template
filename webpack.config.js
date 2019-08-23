@@ -4,7 +4,7 @@
  */
 
 const PATH = require('path');
-const APP_DIRECTORY = PATH.resolve(__dirname, 'src/client');
+const APP_DIRECTORY = PATH.resolve(__dirname, 'src');
 const BUILD_DIRECTORY = PATH.resolve(__dirname, 'public/js');
 const PUBLIC_DIRECTORY = PATH.resolve(__dirname, 'public');
 

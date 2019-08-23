@@ -10,7 +10,7 @@ module.exports = (directoryConfig) => {
   const config = {
     ...require('./webpack.config.common.js')(directoryConfig),
   };
-  config.mode = 'development';
+  // config.mode = 'development';
   config.devServer = {
     contentBase: directoryConfig.public,
     historyApiFallback: true,
